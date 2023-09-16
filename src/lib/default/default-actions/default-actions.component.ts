@@ -6,7 +6,7 @@ import { WatchedEventEmitter } from './WatchedEventSubscriber'
   styleUrls: ['./default-actions.component.scss'],
   templateUrl: './default-actions.component.html'
 })
-export class DefaultActionsComponent implements OnChanges {
+export class DefaultActionsComponent {
 
   _disabled: {[key: string]: boolean};
   @Input()
@@ -14,6 +14,7 @@ export class DefaultActionsComponent implements OnChanges {
     this._disabled = disabled;
   }
 
+  @Output() view: WatchedEventEmitter = new WatchedEventEmitter();
   @Output() save: WatchedEventEmitter = new WatchedEventEmitter();
   @Output() create: WatchedEventEmitter = new WatchedEventEmitter();
   @Output() update: WatchedEventEmitter = new WatchedEventEmitter();
@@ -40,75 +41,76 @@ export class DefaultActionsComponent implements OnChanges {
   @Output() exportSelected: WatchedEventEmitter = new WatchedEventEmitter();
   @Output() search: WatchedEventEmitter = new WatchedEventEmitter();
 
-  ngOnChanges(changes: {[title: string]: SimpleChange}) {
-    // console.log(changes);
+  
+  onView(e) {
+    this.view.emit({event: e});
   }
 
-  clickDelete(e) {
+  onDelete(e) {
     this.delete.emit({event: e});
   }
 
-  clickExport(e) {
+  onExport(e) {
     this.export.emit({event: e});
   }
 
-  clickImport(e) {
+  onImport(e) {
     this.import.emit({event: e});
   }
 
-  clickDeactivate(e) {
+  onDeactivate(e) {
     this.deactivate.emit({event: e});
   }
 
-  clickActivate(e) {
+  onActivate(e) {
     this.activate.emit({event: e});
   }
 
-  clickDisable(e) {
+  onDisable(e) {
     this.disable.emit({event: e});
   }
 
-  clickEnable(e) {
+  onEnable(e) {
     this.enable.emit({event: e});
   }
 
-  clickAttach(e) {
+  onAttach(e) {
     this.attach.emit({event: e});
   }
 
-  clickDetach(e) {
+  onDetach(e) {
     this.detach.emit({event: e});
   }
 
-  clickAssign(e) {
+  onAssign(e) {
     this.assign.emit({event: e});
   }
 
-  clickRemove(e) {
+  onRemove(e) {
     this.remove.emit({event: e});
   }
 
-  clickRevoke(e) {
+  onRevoke(e) {
     this.revoke.emit({event: e});
   }
 
-  clickUpdate(e) {
+  onUpdate(e) {
     this.update.emit({event: e});
   }
 
-  clickEdit(e) {
+  onEdit(e) {
     this.edit.emit({event: e});
   }
 
-  clickSave(e) {
+  onSave(e) {
     this.save.emit({event: e});
   }
 
-  clickCreate(e) {
+  onCreate(e) {
     this.create.emit({event: e});
   }
 
-  clickSearch(e) {
+  onSearch(e) {
     this.search.emit({event: e});
   }
 }
