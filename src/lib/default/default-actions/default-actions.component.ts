@@ -14,6 +14,9 @@ export class DefaultActionsComponent {
     this._disabled = disabled;
   }
 
+  @Input()
+  search: string = '';
+
   @Output() view: WatchedEventEmitter = new WatchedEventEmitter();
   @Output() save: WatchedEventEmitter = new WatchedEventEmitter();
   @Output() create: WatchedEventEmitter = new WatchedEventEmitter();
@@ -39,7 +42,7 @@ export class DefaultActionsComponent {
   @Output() export: WatchedEventEmitter = new WatchedEventEmitter();
   @Output() exportAll: WatchedEventEmitter = new WatchedEventEmitter();
   @Output() exportSelected: WatchedEventEmitter = new WatchedEventEmitter();
-  @Output() search: WatchedEventEmitter = new WatchedEventEmitter();
+  @Output() searchChange: WatchedEventEmitter = new WatchedEventEmitter();
 
   
   onView(e) {
@@ -110,7 +113,7 @@ export class DefaultActionsComponent {
     this.create.emit({event: e});
   }
 
-  onSearch(e) {
-    this.search.emit({event: e});
+  onSearch() {
+    this.searchChange.emit({text: this.search});
   }
 }
