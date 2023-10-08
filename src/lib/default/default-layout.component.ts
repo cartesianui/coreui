@@ -9,10 +9,6 @@ import { INavData } from '@coreui/angular';
 export class DefaultLayoutComponent {
   public navItems: INavData[];
 
-  public perfectScrollbarConfig = {
-    suppressScrollX: true
-  };
-
   public constructor(private route: ActivatedRoute) {
     this.navItems = route.snapshot.data['navItems'];
   }

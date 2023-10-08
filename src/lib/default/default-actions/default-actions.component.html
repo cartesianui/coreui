@@ -1,31 +1,32 @@
 <div class="row app-actions mb-2">
     <div class="col-md-3">
-      <form class="input-group" *ngIf="search.subscriberCount">
-        <input type="text" class="form-control" placeholder="Search..."/>
+      <div class="input-group" *ngIf="searchChange.subscriberCount">
+        <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="search" />
         <div class="input-group-append">
-          <button class="input-group-text cursor-pointer btn-light" (click)="clickSearch($event)">
+          <button class="input-group-text cursor-pointer btn-light" (click)="onSearch()">
             <span class="fas fa-search"></span>
           </button>
         </div>
-      </form>
+      </div>
     </div>
     <div class="col-md-9" style="display: flex; justify-content: end;">
-      <button  *ngIf="delete.subscriberCount" [disabled]="_disabled?.delete ?? false" class="btn btn-danger ms-1" (click)="clickDelete($event)"> <i class="fa fa-trash"></i> Delete</button>
-      <button  *ngIf="export.subscriberCount" [disabled]="_disabled?.export ?? false" class="btn btn-secondary ms-1" (click)="clickExport($event)"> <i class="fa fa-file-export"></i> Export</button>
-      <button  *ngIf="import.subscriberCount" [disabled]="_disabled?.import ?? false" class="btn btn-info ms-1" (click)="clickImport($event)"> <i class="fa fa-file-import"></i> Import</button>
-      <button  *ngIf="deactivate.subscriberCount" [disabled]="_disabled?.deactivate ?? false" class="btn btn-warning ms-1" (click)="clickDeactivate($event)"> <i class="fa fa-lock"></i> Deactivate</button>
-      <button  *ngIf="activate.subscriberCount" [disabled]="_disabled?.activate ?? false" class="btn btn-success ms-1" (click)="clickActivate($event)"> <i class="fa fa-lock-open"></i> Activate</button>
-      <button  *ngIf="disable.subscriberCount" [disabled]="_disabled?.disable ?? false" class="btn btn-warning ms-1" (click)="clickDisable($event)"> <i class="fa fa-lock"></i> Disable</button>
-      <button  *ngIf="enable.subscriberCount" [disabled]="_disabled?.enable ?? false" class="btn btn-success ms-1" (click)="clickEnable($event)"> <i class="fa fa-lock-open"></i> Enable</button>
-      <button  *ngIf="disable.subscriberCount" [disabled]="_disabled?.disable ?? false" class="btn btn-warning ms-1" (click)="clickDisable($event)"> <i class="fa fa-lock"></i> Disable</button>
-      <button  *ngIf="attach.subscriberCount" [disabled]="_disabled?.attach ?? false" class="btn btn-success ms-1" (click)="clickAttach($event)"> <i class="fa fa-lock-open"></i> Attach</button>
-      <button  *ngIf="detach.subscriberCount" [disabled]="_disabled?.detach ?? false" class="btn btn-warning ms-1" (click)="clickDetach($event)"> <i class="fa fa-lock"></i> Detach</button>
-      <button  *ngIf="assign.subscriberCount" [disabled]="_disabled?.assign ?? false" class="btn btn-success ms-1" (click)="clickAssign($event)"> <i class="fa fa-lock-open"></i> Assign</button>
-      <button  *ngIf="remove.subscriberCount" [disabled]="_disabled?.remove ?? false" class="btn btn-warning ms-1" (click)="clickRemove($event)"> <i class="fa fa-save"></i> Remove</button>
-      <button  *ngIf="revoke.subscriberCount" [disabled]="_disabled?.revoke ?? false" class="btn btn-warning ms-1" (click)="clickRemove($event)"> <i class="fa fa-save"></i> Revoke</button>
-      <button  *ngIf="edit.subscriberCount" [disabled]="_disabled?.edit ?? false" class="btn btn-primary ms-1" (click)="clickEdit($event)"> <i class="fa fa-pencil"></i> Edit</button>
-      <button  *ngIf="save.subscriberCount" [disabled]="_disabled?.save ?? false" class="btn btn-primary ms-1" (click)="clickSave($event)"> <i class="fa fa-save"></i> Save</button>
-      <button  *ngIf="create.subscriberCount" [disabled]="_disabled?.create ?? false" class="btn btn-primary ms-1" (click)="clickCreate($event)"> <i class="fa fa-plus"></i> Create</button>
+      <button  *ngIf="view.subscriberCount" [disabled]="_disabled?.view ?? false" class="btn btn-info ms-1" (click)="onView($event)"> <i class="fa fa-info-circle"></i> view</button>
+      <button  *ngIf="delete.subscriberCount" [disabled]="_disabled?.delete ?? false" class="btn btn-danger ms-1" (click)="onDelete($event)"> <i class="fa fa-trash"></i> Delete</button>
+      <button  *ngIf="export.subscriberCount" [disabled]="_disabled?.export ?? false" class="btn btn-secondary ms-1" (click)="onExport($event)"> <i class="fa fa-file-export"></i> Export</button>
+      <button  *ngIf="import.subscriberCount" [disabled]="_disabled?.import ?? false" class="btn btn-info ms-1" (click)="onImport($event)"> <i class="fa fa-file-import"></i> Import</button>
+      <button  *ngIf="deactivate.subscriberCount" [disabled]="_disabled?.deactivate ?? false" class="btn btn-warning ms-1" (click)="onDeactivate($event)"> <i class="fa fa-lock"></i> Deactivate</button>
+      <button  *ngIf="activate.subscriberCount" [disabled]="_disabled?.activate ?? false" class="btn btn-success ms-1" (click)="onActivate($event)"> <i class="fa fa-lock-open"></i> Activate</button>
+      <button  *ngIf="disable.subscriberCount" [disabled]="_disabled?.disable ?? false" class="btn btn-warning ms-1" (click)="onDisable($event)"> <i class="fa fa-lock"></i> Disable</button>
+      <button  *ngIf="enable.subscriberCount" [disabled]="_disabled?.enable ?? false" class="btn btn-success ms-1" (click)="onEnable($event)"> <i class="fa fa-lock-open"></i> Enable</button>
+      <button  *ngIf="disable.subscriberCount" [disabled]="_disabled?.disable ?? false" class="btn btn-warning ms-1" (click)="onDisable($event)"> <i class="fa fa-lock"></i> Disable</button>
+      <button  *ngIf="attach.subscriberCount" [disabled]="_disabled?.attach ?? false" class="btn btn-success ms-1" (click)="onAttach($event)"> <i class="fa fa-lock-open"></i> Attach</button>
+      <button  *ngIf="detach.subscriberCount" [disabled]="_disabled?.detach ?? false" class="btn btn-warning ms-1" (click)="onDetach($event)"> <i class="fa fa-lock"></i> Detach</button>
+      <button  *ngIf="assign.subscriberCount" [disabled]="_disabled?.assign ?? false" class="btn btn-success ms-1" (click)="onAssign($event)"> <i class="fa fa-lock-open"></i> Assign</button>
+      <button  *ngIf="remove.subscriberCount" [disabled]="_disabled?.remove ?? false" class="btn btn-warning ms-1" (click)="onRemove($event)"> <i class="fa fa-save"></i> Remove</button>
+      <button  *ngIf="revoke.subscriberCount" [disabled]="_disabled?.revoke ?? false" class="btn btn-warning ms-1" (click)="onRevoke($event)"> <i class="fa fa-save"></i> Revoke</button>
+      <button  *ngIf="edit.subscriberCount" [disabled]="_disabled?.edit ?? false" class="btn btn-primary ms-1" (click)="onEdit($event)"> <i class="fa fa-pencil"></i> Edit</button>
+      <button  *ngIf="save.subscriberCount" [disabled]="_disabled?.save ?? false" class="btn btn-primary ms-1" (click)="onSave($event)"> <i class="fa fa-save"></i> Save</button>
+      <button  *ngIf="create.subscriberCount" [disabled]="_disabled?.create ?? false" class="btn btn-primary ms-1" (click)="onCreate($event)"> <i class="fa fa-plus"></i> Create</button>
       <ng-content></ng-content>
     </div>
 </div>

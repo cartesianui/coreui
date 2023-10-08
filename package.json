@@ -1,11 +1,18 @@
 {
-  "name": "@cartesianui/bo-layout",
+  "name": "@cartesianui/coreui",
   "version": "0.0.1",
   "peerDependencies": {
-    "@angular/common": "^14.0.0",
-    "@angular/core": "^14.0.0"
+    "@angular/common": "^16.2.2",
+    "@angular/core": "^16.2.2"
   },
   "dependencies": {
+    "@coreui/angular": "^4.5.15",
+    "@coreui/angular-chartjs": "^4.5.15",
+    "@coreui/chartjs": "^3.1.2",
+    "@coreui/coreui": "~4.3.0",
+    "@coreui/icons": "^3.0.1",
+    "@coreui/icons-angular": "^4.5.15",
+    "@coreui/utils": "^2.0.2",
     "tslib": "^2.3.0"
   }
 }
