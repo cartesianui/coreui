@@ -10,6 +10,7 @@
       </div>
     </div>
     <div class="col-md-9" style="display: flex; justify-content: end;">
+      <ng-content></ng-content>
       <button  *ngIf="view.subscriberCount" [disabled]="_disabled?.view ?? false" class="btn btn-info ms-1" (click)="onView($event)"> <i class="fa fa-info-circle"></i> view</button>
       <button  *ngIf="delete.subscriberCount" [disabled]="_disabled?.delete ?? false" class="btn btn-danger ms-1" (click)="onDelete($event)"> <i class="fa fa-trash"></i> Delete</button>
       <button  *ngIf="export.subscriberCount" [disabled]="_disabled?.export ?? false" class="btn btn-secondary ms-1" (click)="onExport($event)"> <i class="fa fa-file-export"></i> Export</button>
@@ -27,7 +28,7 @@
       <button  *ngIf="edit.subscriberCount" [disabled]="_disabled?.edit ?? false" class="btn btn-primary ms-1" (click)="onEdit($event)"> <i class="fa fa-pencil"></i> Edit</button>
       <button  *ngIf="save.subscriberCount" [disabled]="_disabled?.save ?? false" class="btn btn-primary ms-1" (click)="onSave($event)"> <i class="fa fa-save"></i> Save</button>
       <button  *ngIf="create.subscriberCount" [disabled]="_disabled?.create ?? false" class="btn btn-primary ms-1" (click)="onCreate($event)"> <i class="fa fa-plus"></i> Create</button>
-      <ng-content></ng-content>
+      <button  *ngIf="update.subscriberCount" [disabled]="_disabled?.update ?? false" class="btn btn-primary ms-1" (click)="onUpdate($event)"> <i class="fa fa-save"></i> Update</button>
     </div>
 </div>
 
