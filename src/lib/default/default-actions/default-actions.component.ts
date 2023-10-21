@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChange } from '@angular/core';
-import { WatchedEventEmitter } from './WatchedEventSubscriber'
+import { WatchedEventEmitter } from './WatchedEventSubscriber';
 
 @Component({
   selector: 'default-actions, page-actions',
@@ -7,11 +7,16 @@ import { WatchedEventEmitter } from './WatchedEventSubscriber'
   templateUrl: './default-actions.component.html'
 })
 export class DefaultActionsComponent {
-
-  _disabled: {[key: string]: boolean};
+  _disabled: { [key: string]: boolean };
   @Input()
-  set disabled(disabled: {[key: string]: boolean}) {
+  set disabled(disabled: { [key: string]: boolean }) {
     this._disabled = disabled;
+  }
+
+  _hide: { [key: string]: boolean };
+  @Input()
+  set hide(hide: { [key: string]: boolean }) {
+    this._hide = hide;
   }
 
   @Input()
@@ -44,76 +49,75 @@ export class DefaultActionsComponent {
   @Output() exportSelected: WatchedEventEmitter = new WatchedEventEmitter();
   @Output() searchChange: WatchedEventEmitter = new WatchedEventEmitter();
 
-  
   onView(e) {
-    this.view.emit({event: e});
+    this.view.emit({ event: e });
   }
 
   onDelete(e) {
-    this.delete.emit({event: e});
+    this.delete.emit({ event: e });
   }
 
   onExport(e) {
-    this.export.emit({event: e});
+    this.export.emit({ event: e });
   }
 
   onImport(e) {
-    this.import.emit({event: e});
+    this.import.emit({ event: e });
   }
 
   onDeactivate(e) {
-    this.deactivate.emit({event: e});
+    this.deactivate.emit({ event: e });
   }
 
   onActivate(e) {
-    this.activate.emit({event: e});
+    this.activate.emit({ event: e });
   }
 
   onDisable(e) {
-    this.disable.emit({event: e});
+    this.disable.emit({ event: e });
   }
 
   onEnable(e) {
-    this.enable.emit({event: e});
+    this.enable.emit({ event: e });
   }
 
   onAttach(e) {
-    this.attach.emit({event: e});
+    this.attach.emit({ event: e });
   }
 
   onDetach(e) {
-    this.detach.emit({event: e});
+    this.detach.emit({ event: e });
   }
 
   onAssign(e) {
-    this.assign.emit({event: e});
+    this.assign.emit({ event: e });
   }
 
   onRemove(e) {
-    this.remove.emit({event: e});
+    this.remove.emit({ event: e });
   }
 
   onRevoke(e) {
-    this.revoke.emit({event: e});
+    this.revoke.emit({ event: e });
   }
 
   onUpdate(e) {
-    this.update.emit({event: e});
+    this.update.emit({ event: e });
   }
 
   onEdit(e) {
-    this.edit.emit({event: e});
+    this.edit.emit({ event: e });
   }
 
   onSave(e) {
-    this.save.emit({event: e});
+    this.save.emit({ event: e });
   }
 
   onCreate(e) {
-    this.create.emit({event: e});
+    this.create.emit({ event: e });
   }
 
   onSearch() {
-    this.searchChange.emit({text: this.search});
+    this.searchChange.emit({ text: this.search });
   }
 }
