@@ -1,5 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
-import { WatchedEventEmitter } from '../default-actions/WatchedEventSubscriber';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-offcanvas',
@@ -11,7 +10,7 @@ export class OffcanvasComponent {
   @Input() title: string;  
   @Input() subTitle: string;
   @Input() visible: boolean = false; 
-  @Output() visibleChange: WatchedEventEmitter = new WatchedEventEmitter();
+  @Output() visibleChange: EventEmitter<boolean> = new EventEmitter();
 
   public constructor() {}
 

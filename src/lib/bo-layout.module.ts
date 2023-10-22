@@ -30,7 +30,6 @@ import {
 import { IconModule, IconSetService } from '@coreui/icons-angular';
 
 import {
-  DefaultActionsComponent,
   DefaultFooterComponent,
   DefaultHeaderComponent,
   DefaultLayoutComponent,
@@ -41,7 +40,7 @@ import {
 // Import 3rd party components
 import { NgScrollbarModule } from 'ngx-scrollbar';
 
-const APP_CONTAINERS = [OffcanvasComponent, DefaultFooterComponent, DefaultHeaderComponent, DefaultPageTitleComponent, DefaultActionsComponent, DefaultLayoutComponent];
+const APP_CONTAINERS = [OffcanvasComponent, DefaultFooterComponent, DefaultHeaderComponent, DefaultPageTitleComponent, DefaultLayoutComponent];
 
 @NgModule({
   imports: [
@@ -85,7 +84,6 @@ const APP_CONTAINERS = [OffcanvasComponent, DefaultFooterComponent, DefaultHeade
   ],
   exports: [
     DefaultPageTitleComponent,
-    DefaultActionsComponent,
     OffcanvasComponent
   ]
 })
