@@ -23,8 +23,10 @@ import {
   SharedModule as CoreUiAngularSharedModule,
   SidebarModule,
   // TabsModule,
-  UtilitiesModule
+  UtilitiesModule,
+  OffcanvasModule
 } from '@coreui/angular';
+
 import { IconModule, IconSetService } from '@coreui/icons-angular';
 
 import {
@@ -32,17 +34,14 @@ import {
   DefaultFooterComponent,
   DefaultHeaderComponent,
   DefaultLayoutComponent,
-  DefaultPageTitleComponent
+  DefaultPageTitleComponent,
+  OffcanvasComponent
 } from './default';
 
 // Import 3rd party components
-import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarModule, PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 
-const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-  suppressScrollX: true
-};
-
-const APP_CONTAINERS = [DefaultFooterComponent, DefaultHeaderComponent, DefaultPageTitleComponent, DefaultActionsComponent, DefaultLayoutComponent];
+const APP_CONTAINERS = [OffcanvasComponent, DefaultFooterComponent, DefaultHeaderComponent, DefaultPageTitleComponent, DefaultActionsComponent, DefaultLayoutComponent];
 
 @NgModule({
   imports: [
@@ -52,7 +51,7 @@ const APP_CONTAINERS = [DefaultFooterComponent, DefaultHeaderComponent, DefaultP
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    PerfectScrollbarModule,
+    NgScrollbarModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     // ChartsModule,
@@ -65,7 +64,6 @@ const APP_CONTAINERS = [DefaultFooterComponent, DefaultHeaderComponent, DefaultP
     HeaderModule,
     SidebarModule,
     // IconModule,
-    // PerfectScrollbarModule,
     NavModule,
     ButtonModule,
     // FormModule,
@@ -76,21 +74,19 @@ const APP_CONTAINERS = [DefaultFooterComponent, DefaultHeaderComponent, DefaultP
     // TabsModule,
     // ListGroupModule,
     ProgressModule,
-    BadgeModule
+    BadgeModule,
     // ListGroupModule,
     // CardModule,
+    OffcanvasModule
   ],
   declarations: [...APP_CONTAINERS],
   providers: [
-    {
-      provide: PERFECT_SCROLLBAR_CONFIG,
-      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    },
     IconSetService
   ],
   exports: [
     DefaultPageTitleComponent,
-    DefaultActionsComponent
+    DefaultActionsComponent,
+    OffcanvasComponent
   ]
 })
 export class BoLayoutModule {
@@ -104,7 +100,7 @@ export class BoLayoutModule {
   static forFeature(): ModuleWithProviders<BoLayoutModule> {
     return {
       ngModule: BoLayoutModule,
-      providers: []
+      providers: [],
     }
   }
 }

@@ -1,4 +1,4 @@
 /*
- * Public API Surface of bo-layout
+ * Public API Surface of coreui
  */
 export * from './lib';

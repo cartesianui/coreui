@@ -10,8 +10,8 @@
       ],
       "parserOptions": {
         "project": [
-          "projects/bo-layout/tsconfig.lib.json",
-          "projects/bo-layout/tsconfig.spec.json"
+          "projects/coreui/tsconfig.lib.json",
+          "projects/coreui/tsconfig.spec.json"
         ],
         "createDefaultProgram": true
       },

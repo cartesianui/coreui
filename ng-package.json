@@ -1,7 +1,8 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/bo-layout",
+  "dest": "../../dist/coreui",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "allowedNonPeerDependencies": ["@coreui/angular", "@coreui/angular", "@coreui/angular-chartjs", "@coreui/chartjs", "@coreui/coreui", "@coreui/icons", "@coreui/icons-angular", "@coreui/utils"]
 }
